@@ -3,7 +3,7 @@ package ip
 import (
 	"net"
 
-	"github.com/transitnode/SnowLeo/internal/models"
+	"github.com/datashelll/SnowLeo/internal/models"
 )
 
 func Lookup(input string) (models.IPResponse, error) {

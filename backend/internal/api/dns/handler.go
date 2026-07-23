@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/transitnode/SnowLeo/internal/services/dns"
+	"github.com/datashelll/SnowLeo/internal/services/dns"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {

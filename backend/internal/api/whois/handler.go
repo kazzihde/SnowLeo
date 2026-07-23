@@ -1,10 +1,10 @@
-package ipapi
+package whoisapi
 
 import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/datashelll/SnowLeo/internal/services/ip"
+	"github.com/datashelll/SnowLeo/internal/services/whois"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -15,13 +15,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result, err := ip.Lookup(query)
+	result, err := whois.Lookup(query)
 
 	if err != nil {
-		http.Error(w, "lookup failed: no such host", http.StatusBadRequest)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(result)
 }

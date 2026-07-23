@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/datashelll/SnowLeo/internal/config"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/transitnode/SnowLeo/internal/config"
 )
 
 func Connect(cfg config.Config) *sql.DB {
